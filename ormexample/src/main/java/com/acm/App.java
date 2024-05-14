@@ -27,24 +27,24 @@ public class App
     {
         emf = Persistence.createEntityManagerFactory("Persistencia");
         em = emf.createEntityManager();
-        // em.getTransaction().begin();
-        // JavaBeanPersona persona = new JavaBeanPersona(1000, "Alejandro", "Riveros", LocalDate.of(2000, Month.APRIL, 2));
-        // JavaBeanPersona persona2 = new JavaBeanPersona(2000,"Brayan","Rodriguez",LocalDate.of(2000, Month.AUGUST, 2));
-        // em.persist(persona);
-        // em.persist(persona2);
-        // Recibos recibos = new Recibos(1, 200d);
-        // Recibos recibos2 = new Recibos(2, 20, persona);
-        // em.persist(recibos);
-        // recibos.setPersona(persona);
-        // em.persist(recibos2);
-        // Parqueadero parqueadero = new Parqueadero(1, 10);
-        // em.persist(parqueadero);
-        // persona.setParqueadero(parqueadero);
-        // em.getTransaction().commit();
         em.getTransaction().begin();
-        Recibo_Producto recibo_Producto = new Recibo_Producto(new Producto("cafe", 200d, LocalDate.of(2025, 2, 2)),new Recibos(1, 200d));
-        em.persist(recibo_Producto);
+        JavaBeanPersona persona = new JavaBeanPersona(1000, "Alejandro", "Riveros", LocalDate.of(2000, Month.APRIL, 2));
+        JavaBeanPersona persona2 = new JavaBeanPersona(2000,"Brayan","Rodriguez",LocalDate.of(2000, Month.AUGUST, 2));
+        em.persist(persona);
+        em.persist(persona2);
+        Recibos recibos = new Recibos(1, 200d);
+        Recibos recibos2 = new Recibos(2, 20, persona);
+        em.persist(recibos);
+        recibos.setPersona(persona);
+        em.persist(recibos2);
+        Parqueadero parqueadero = new Parqueadero(1, 10);
+        em.persist(parqueadero);
+        persona.setParqueadero(parqueadero);
         em.getTransaction().commit();
+        // em.getTransaction().begin();
+        // Recibo_Producto recibo_Producto = new Recibo_Producto(new Producto("cafe", 200d, LocalDate.of(2025, 2, 2)),new Recibos(1, 200d));
+        // em.persist(recibo_Producto);
+        // em.getTransaction().commit();
         App.imprimirPantalla();
     }
     public static void imprimirPantalla(){
